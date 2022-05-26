@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="#"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+   
+    <style type="stylesheet">
+        ::-webkit-scrollbar {
+                                  width: 8px;
+                                }
+                                /* Track */
+                                ::-webkit-scrollbar-track {
+                                  background: #f1f1f1; 
+                                }
+                                 
+                                /* Handle */
+                                ::-webkit-scrollbar-thumb {
+                                  background: #888; 
+                                }
+                                
+                                /* Handle on hover */
+                                ::-webkit-scrollbar-thumb:hover {
+                                  background: #555; 
+                                } @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');*{margin:0;padding:0}
+                               
+
+
+
+    .container{
+        min-height:100vh;
+        background-color:#5fd7f6;
+        display:flex;
+        justify-content:center;
+        align-items:center}
+    
+    .card{height:auto;width:450px;background-color:#3a3f49;border-radius:10px;padding:20px 20px;box-sizing:border-box;font-family: 'Poppins', sans-serif}
+    .top-part{display:flex;justify-content:space-between;margin-top:20px;color:#fff}
+    
+    
+    @import url(https://fonts.googleapis.com/css?family=Playball|Open+Sans+Condensend:300);
+
+
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+    <section class="pt-5 pb-5 bg-dark inner-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="mt-0 mb-3 text-white">Lista de tareas</h1>
+                    <div class="breadcrumbs">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    
+
+    <div class="container">
+        <h1 class="top-part"></h1>
+        <form action="/enviar" method="post" class="card">
+            <label> Tarea: </label>
+            <input type="text" class="form-control" name="tarea"> <br>
+            <label> Responsable: </label>
+            <input type="text" class="form-control" name="responsable"> <br>
+            <label for="cars">Nivel de prioridad:</label> <br>
+            <select class="form-control" id="combo" name="prioridad">
+                <option value="Alto">Alto</option>
+                <option value="Medio">Medio</option>
+                <option value="Bajo">Bajo</option>
+            </select>
+            <input type="submit" class="btn-primary" value="Añadir">  </input>
+            
+        </form>
+        <section class="pt-5 pb-5 bg-dark inner-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1 class="mt-0 mb-3 text-white"></h1>
+                        <div class="breadcrumbs">
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <form action="/tabla" method="post" class="card">
+            <input type="submit" class="btn-primary" value="Mostrar Tabla">  </input>
+        </form>
+        <form action="/borrar" method="post" class="card">
+            <input type="submit" class="btn-primary" value="Borrar">  </input>
+        </form>
+        
+
+
+       <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Tarea</th>
+                    <th scope="col">Responsable</th>
+                    <th scope="col">Prioridad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tarea in listaTareas %}
+                <tr>
+                    <td>{{tarea.tarea}}</td>
+                    <td>{{tarea.responsable}}</td>
+                    <td>{{tarea.prioridad}}</td>        
+                </tr>  
+                {% endfor %}
+            </tbody>
+        </table>  
+
+        
+    </div>
+    <div></div>
+
+</body>
+
+</html>
